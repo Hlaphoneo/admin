@@ -1,0 +1,29 @@
+.c-container { 
+    height: 100vh;;
+}
+
+.divider { 
+  opacity: 0.2;
+}
+  
+  .example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .navbar{
+    padding: 20px;
+    width: 150px;
+    background-color: #363941
+  }
+
+  mat-drawer-container { 
+      height: 100%;
+  }
+
+  mat-drawer {
+    width:  100% !important;
+    height: 100% !important;
+  }

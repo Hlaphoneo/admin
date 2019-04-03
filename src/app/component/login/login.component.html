@@ -1,0 +1,14 @@
+<div class='login'>
+    <!-- <h2>Egov login</h2> -->
+    <input [(ngModel)]="loginData.username" name='username' placeholder='Username' type='text'/>
+    <span class="error-message" *ngIf="errorMessage">*{{errorMessage}}</span>
+    <input autocomplete="false" [(ngModel)]="loginData.password" id='pw' name='password' placeholder='Password' type='password'/>
+    <div class='remember'>
+      <input checked='' id='remember' name='remember' type='checkbox'/>
+      <label for='remember'></label>Remember me
+    </div>
+    <input type='submit' (click)="login()" value='Sign in'/>
+    <a class='forgot' href='#'>Forgot your password?</a>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,68 @@
+mat-row:hover{
+    background-color: rgba(0, 0, 0, 0.056);
+    cursor: pointer;
+}
+
+.user-report-information{
+    height: auto;
+    width: 80%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 1000px;
+}
+
+.search-input { 
+    padding-left: 20px;
+    width: 50%;
+    border-radius: 5px;
+    box-shadow: none;
+    border: none !important;
+    letter-spacing: 2px;
+    height: 34px !important; 
+    color: rgba(0, 0, 0, 0.761);
+}
+
+.search-btn { 
+    margin-left: -40px;
+    margin-top: -10px;
+    box-shadow: none !important;
+    height: 34px !important;
+    background-color: #4CA750;
+    border-radius: 5px;
+}
+.complete-btn { 
+    background-color: #61B765;
+    box-shadow: none;
+    border:none;
+}
+
+.close-btn { 
+    float: right;
+    margin-right: 10px;
+    color: black;
+}
+
+mat-spinner { 
+margin-left: auto;
+margin-right: auto;
+}
+
+
+.issue-image { 
+        height: 250px;
+        width: 250px;
+
+        max-width: 250px !important;
+        max-height: 250px !important;
+}
+
+.example-container {
+    box-shadow: none !important;
+}
+
+.issue-button { 
+    margin-top: 25px;
+    background-color: #F0506E;
+    border-radius: 5px;
+}

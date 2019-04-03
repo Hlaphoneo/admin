@@ -1,0 +1,43 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+}
+
+
+.menu { 
+  background-color: white;;
+}
+
+mat-sidenav {
+  background-color: #525A65;
+}
+
+.menu-1{
+  background-color: #525A65;
+}
+
+.main-container {
+  height: 90vh;
+}
+
+mat-icon {
+  color: #525A65;
+}
+
+.title {
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  font-weight: 600;
+  letter-spacing: 2px;
+  opacity: 0.2;
+}

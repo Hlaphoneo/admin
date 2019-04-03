@@ -1,0 +1,193 @@
+
+<div class="main-content">
+    <div class="container-fluid">
+        <!-- <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">store</i>
+                        </div>
+                        <p class="card-category">Pending reports</p>
+                        <h3 class="card-title">{{reportsCount}}</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            count of all reports in the systems.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="row" >
+              <div *ngIf="!viewReportItem" class="col-lg-12 col-md-12">
+                  <input class="search-input" placeholder="Search phone, reference" [(ngModel)]="searchString" ><button (click)="filter()" class="search-btn" mat-raised-button color="primary">Search</button>
+              </div>
+        </div>
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-lg-12 col-md-12">
+              <div  class="example-container mat-elevation-z8" *ngIf="!viewReportItem">
+                  <mat-table #table [dataSource]="dataSource">
+                
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="position">
+                      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+                      <mat-cell *matCellDef="let element" > {{element?.position}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="name">
+                      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                      <mat-cell *matCellDef="let element" > {{element?.name}} </mat-cell>
+                    </ng-container>
+                
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="gategory">
+                      <mat-header-cell *matHeaderCellDef> Gategory </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element?.gategory}} </mat-cell>
+                    </ng-container>
+                
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="date">
+                      <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element?.date}} </mat-cell>
+                    </ng-container>
+                
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="phone">
+                      <mat-header-cell *matHeaderCellDef> Phone </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element?.phone}} </mat-cell>
+                    </ng-container>
+                
+                    <ng-container matColumnDef="reference">
+                      <mat-header-cell *matHeaderCellDef> Reference </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element?.reference}} </mat-cell>
+                    </ng-container>
+                
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;" (click) = "openDialog(row)"></mat-row>
+                  </mat-table>
+                
+                  <mat-paginator #paginator
+                                 [pageSize]="5"
+                                 [pageSizeOptions]="[5, 10, 20]"
+                                 [showFirstLastButtons]="true">
+                  </mat-paginator>
+                </div>
+
+                <div class="user-report-information" *ngIf="viewReportItem">
+                    <h5 style="display: inline;">Report - <span *ngIf="viewReportItem?.reference">-</span> 5462254</h5>
+                    <button mat-button class="close-btn" (click)="closeReport()">Cancel</button>
+                    <hr>
+
+                    <form class="uk-grid-small" uk-grid>
+                        <div class="uk-width-1-1@s">
+                            <h6>Gategory</h6>
+                            <input class="uk-input" type="text" value="{{viewReportItem?.gategory}}" disabled placeholder="Error occured">
+                        </div>
+                        <div class="uk-width-1-2@s">
+                            <h6>Phone</h6>
+                            <input class="uk-input" type="text" value="{{viewReportItem?.phone}}" disabled placeholder="Error occured">
+                        </div>
+                        <div class="uk-width-1-1@s">
+                            <h6>Address</h6>
+                            <input class="uk-input" disabled type="text" value="{{viewReportItem?.address}}" placeholder="error occured">
+                        </div>
+                        <div class="uk-width-1-1@s">
+                            <textarea class="uk-textarea" value="" disabled>{{viewReportItem?.message}}</textarea>
+                        </div>
+                        <div class="uk-width-1-2@s">
+                            <h6 *ngIf="viewReportItem?.image" >Image</h6>
+                            <img  *ngIf="viewReportItem?.image" class="issue-image" [src]="viewReportItem?.image" >
+                        </div>
+                    </form>
+                    <button class="uk-button uk-button-secondary uk-width-1-1 issue-button" (click)="done()"><strong>Close issue</strong></button>
+                  </div>
+
+
+                <!-- <div class="user-report-information" >
+                  <h4 style="display: inline;"><strong>Report<span *ngIf="viewReportItem.reference">-</span> {{viewReportItem?.reference}}</strong></h4>
+                  <button mat-button class="close-btn" (click)="closeReport()">close</button>
+                  <hr>
+                  <h6>Gategory : <strong>{{viewReportItem?.gategory}}</strong></h6>
+                  <h6>Phone : <strong>{{viewReportItem?.phone}}</strong></h6>
+                  <h6>Date : <strong>{{viewReportItem?.date}}</strong></h6>
+                  <h6>Address<address><strong>{{viewReportItem?.address}}</strong></address></h6>
+                  <h6 *ngIf="viewReportItem.image" >Image</h6>
+                  <img  *ngIf="viewReportItem.image" class="issue-image" [src]="viewReportItem?.image" >
+                  <h5><strong>Issue</strong></h5>
+                  <p class="issue-message">{{viewReportItem?.message}}</p>
+                  <button mat-raised-button color="warn" (click)="done()" class="complete-btn">Delete</button>
+                </div> -->
+
+
+                
+            </div>
+            <!-- <div. 02class="col-lg-12 col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <p class="card-category">Requests from the community, including public reports.</p>
+                    </div>
+                    <div class="card-body table-responsive">
+                        <table class="table table-hover">
+                            <thead class="text-warning">
+                                <th>Count</th>
+                                <th>Gategory</th>
+                                <th>Date</th>
+                                <th>Phone</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Dakota Rice</td>
+                                    <td>$36,738</td>
+                                    <td>Niger</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Dakota Rice</td>
+                                    <td>$36,738</td>
+                                    <td>Niger</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="col-lg-6 col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title"><strong>Announcements</strong></h4>
+                        <p class="card-category">Sent notifications to users in the service.</p>
+                    </div>
+                    <div class="card-body table-responsive">
+                        <table class="table table-hover">
+                            <thead class="text-warning">
+                                <th>Count</th>
+                                <th>Owner</th>
+                                <th>Title</th>
+                                <th>Date</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Dakota Rice</td>
+                                    <td>$36,738</td>
+                                    <td>Niger</td>
+                                    <td class="td-actions text-right">
+                                      <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-success btn-link btn-sm btn-just-icon">
+                                          <i class="material-icons">edit</i>
+                                      </button>
+                                      <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                          <i class="material-icons">close</i>
+                                      </button>
+                                  </td>
+                                </tr>
+                                <tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+  </div>
+  

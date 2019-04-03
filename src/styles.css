@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import "styles/uikit.css";
+@import "styles/uikit-rtl.min.css";
+
+@import "styles/font-awesome/font-awesome.min.css";
+
+/* Styling for the main content of the app */
+.main-content{ 
+    padding: 10px !important;
+    height: 100vh;
+    background-color: #F8F8F8;
+}
+
+
+.ng-tns-c4-1 mat-button { 
+    background-color: #465A63 !important;
+}
